@@ -1,0 +1,417 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="Content-Security-Policy" content="default-src * data:; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+  <script src="components/loader.js"></script>
+  <script src="lib/angular/angular.min.js"></script>
+  <script src="lib/onsenui/js/onsenui.min.js"></script>
+  <script src="lib/onsenui/js/angular-onsenui.min.js"></script>
+    <script src="cordova.js"></script>
+ 
+  <link rel="stylesheet" href="components/loader.css">
+  <link rel="stylesheet" href="lib/onsenui/css/onsenui.css">
+  <link rel="stylesheet" href="lib/onsenui/css/onsen-css-components.css">
+  <link rel="stylesheet" href="css/style.css">
+
+<script>
+    ons.bootstrap()
+      .controller('AppController', function($scope, $http) {
+        this.load = function(page) {
+          $scope.splitter.content.load(page);
+          $scope.splitter.left.close();
+        };
+
+        this.toggle = function() {
+          $scope.splitter.left.toggle();
+        };
+        
+      
+         $http.get("getStatic.json").then(function (response) {
+             $scope.staticData = response.data;
+        });
+       
+         $http.get("getDynamic.json").then(function (response) {
+             $scope.dynamicData = response.data;
+        });
+        
+        $http.get("getSoftware.json").then(function (response) {
+             $scope.softwareData = response.data;
+        });
+        
+        $http.get("getResponsive.json").then(function (response) {
+             $scope.responsiveData = response.data;
+        });
+        
+        $http.get("getApp.json").then(function (response) {
+             $scope.appsData = response.data;
+        });
+        
+      });
+   
+</script>
+
+</head>
+<body>
+
+  <ons-splitter ng-controller="AppController as app" var="splitter">
+    <ons-splitter-side side="left" width="220px" collapse swipeable>
+      <ons-page>
+       <ons-list>
+         <ons-list-item  tappable>
+         <div>
+               <img src="images/logo.png" style="width:100%" />
+         </div>
+        </ons-list-item>  
+        <ons-list-item ng-click="app.load('home.html')" tappable>
+          Home
+        </ons-list-item>
+        <ons-list-item ng-click="app.load('about.html')" tappable>
+          About
+        </ons-list-item>
+        <ons-list-item ng-click="app.load('services.html')" tappable>
+          Our Services
+        </ons-list-item>
+         <ons-list-item ng-click="app.load('clients.html')" tappable>
+          Our Clients
+        </ons-list-item>
+          <ons-list-item ng-click="app.load('staticprojects.html')" tappable>
+          Static Web Projects
+        </ons-list-item>
+          <ons-list-item ng-click="app.load('dynamicprojects.html')" tappable>
+          Dynamic Web Projects
+        </ons-list-item>
+          <ons-list-item ng-click="app.load('softwareprojects.html')" tappable>
+          Software Projects
+        </ons-list-item>
+          <ons-list-item ng-click="app.load('responsiveprojects.html')" tappable>
+          Responsive Projects
+        </ons-list-item>
+          <ons-list-item ng-click="app.load('appprojects.html')" tappable>
+          App
+        </ons-list-item>
+         <ons-list-item ng-click="app.load('contactus.html')" tappable>
+          Contact Us
+        </ons-list-item>
+      </ons-list>
+      </ons-page>
+    </ons-splitter-side>
+    <ons-splitter-content page="home.html"></ons-splitter-content>
+  </ons-splitter>
+
+  <ons-template id="home.html">
+    <ons-page>
+      <ons-toolbar>
+        <div class="left">
+          <ons-toolbar-button ng-click="app.toggle()">
+            <ons-icon icon="md-menu"></ons-icon>
+          </ons-toolbar-button>
+        </div>
+        <div class="center">
+          Main
+        </div>
+      </ons-toolbar>
+     <ons-carousel var="carousel"  fullscreen swipeable auto-scroll overscrollable>
+    <ons-carousel-item  >
+     <img src="images/rs-slider1-bg.jpg" style="width:100%; height:auto;">
+    </ons-carousel-item>
+    <ons-carousel-item >
+     <img src="images/rs-slider2-bg.jpg" style="width:100% ;height:auto;">
+    </ons-carousel-item>
+    <ons-carousel-item >
+     <img src="images/rs-slider3-bg.jpg" style="width:100%; height:auto;">
+    </ons-carousel-item>
+    <ons-carousel-item >
+     <img src="images/rs-slider4-bg.jpg" style="width:100%; height:auto;">
+    </ons-carousel-item>
+</ons-carousel>
+   
+    
+    <div class="front_page_content" > 
+      <p>Ugra Technology is a leading professional web design and web development company in Salem offering various services such as, Webs Designing, Web Development, Softwares, Ecommerce Websites, Search Engine Optimization (SEO) services and Online Works.</p>
+
+<p>We offer you Customize web design templates to get yourself a unique on web. We customize your layout, pictures, logos, flash elements, color scheme and the content. We design websites at your request.</p>
+
+<p>Contact us immediately to check our company's outstanding power and get your best destination for all your professional web design and development needs.</p>
+
+<p>We provide ultimate support from the start till the end. We are here to help & keep your business ahead always!</p>
+       <img src="images/band-1.jpg" class="responsive"/>
+
+<div >
+
+   
+
+</div>
+      <div class="alert-danger" >
+        Build your Expectation over our Expertise. With a decade of experience, we have in-depth knowledge and skilled experts in web and mobile technologies!
+      </div>
+        </div>
+    </ons-page>
+  </ons-template>
+
+  <ons-template id="settings.html">
+    <ons-page>
+      <ons-toolbar>
+        <div class="left">
+          <ons-toolbar-button ng-click="app.toggle()">
+            <ons-icon icon="md-menu"></ons-icon>
+          </ons-toolbar-button>
+        </div>
+        <div class="center">
+          Settings
+        </div>
+      </ons-toolbar>
+    </ons-page>
+  </ons-template>
+
+  <ons-template id="about.html">
+    <ons-page>
+      <ons-toolbar>
+        <div class="left">
+          <ons-toolbar-button ng-click="app.toggle()">
+            <ons-icon icon="md-menu"></ons-icon>
+          </ons-toolbar-button>
+        </div>
+        <div class="center">
+          About Us
+        </div>
+      </ons-toolbar>
+         <img src="images/band-5.jpg" class="responsive"/>
+        <p>Ugra Technology is a web site designing company in Salem, Tamilnadu specialising in innovative website design with powerful functionality for better online business.</p>
+ <p>
+Getting your business online now a days is essential - whether your business is large or small. Many of the benefits of being online will not be obvious till you see what a website can do for you!</p>
+ <p>
+We offer you Customize templates to get yourself a unique on web. We customize your layout, pictures, logos, flash elements, color scheme and the content. We design websites at your request.</p>
+ <p>
+Searching for a website design? Just request us for what you require. Ugra Tehnology think in assisting our clients with entire website results. Just contact us for what you require</p>
+        <h3>Over a Decade of Experience</h3>
+        <p>Build your Expectation over our Expertise. With a decade of experience, we have in-depth knowledge and skilled experts in web and mobile technologies!</p>
+        <h3>Experience the Excellence</h3>
+        <p>Quality comes first. Our Quality assurance is backed with lasting professional experience and innumerable international clients!</p>
+        <h3>Reliable Service</h3>
+        <p>Customers from all over the world can see your product or service online straight away, a web site never sleeps - it is open 24/7! Whether you currently have a web site that is under-performing or you are completely new to the web we can help you.</p>
+   
+    </ons-page>
+  </ons-template>
+    
+    
+      
+<ons-template id="services.html">
+  <ons-page>
+    <ons-toolbar>
+       <div class="left">
+        <ons-toolbar-button ng-click="app.toggle()">
+          <ons-icon icon="md-menu"></ons-icon>
+        </ons-toolbar-button>
+      </div>
+      <div class="center">
+        Our Services 
+      
+      </div>
+         </ons-toolbar>
+      <h3> Web Designing and Frontend Development</h3>
+      <img src="images/responsive-web.png" class="responsive"/>
+        <p>A professional and unique designed website increases the visibility to your customers to know about your products and services in the Internet world.</p>
+ <p>
+Ugra Technology always follows the latest technology and design accordingly that which suits for all web business. We are experts in designing a creative website which can easily accessed, loads quickly, fine navigation and have a good look and feel of the website.</p>
+ <p>
+When we talk about custom web design, we give you a unique and customized design that is specially made for you. Each and every client has their own requirements and hence they need the customized design by which they can promote their business. We know that each of our clients have their individual requirements and hence they need a custom web design service through which they can promote their business in a unique manner. This means we give Individual Approach to Every Customer by using the below features.</p>
+ 
+  </ons-page>
+</ons-template>
+    
+    
+    <ons-template id="clients.html">
+    <ons-page>
+      <ons-toolbar>
+        <div class="left">
+          <ons-toolbar-button ng-click="app.toggle()">
+            <ons-icon icon="md-menu"></ons-icon>
+          </ons-toolbar-button>
+        </div>
+        <div class="center">
+          Clients
+        </div>
+      </ons-toolbar>
+        <ul class="list-unstyled">
+  <li>  <img src="images/clients/aalfa.jpg" width="100%"/>     
+        <p class="page_title">  Aalfa Properties </p>
+  </li>
+            <li> <img src="images/clients/annaiarts.jpg" width="100%"/>  <p class="page_title">  Annai Arts Salem </p></li>
+            <li> <img src="images/clients/arun.jpg" width="100%"/>  <p class="page_title">  Arun Academy </p></li>
+            <li> <img src="images/clients/aspireacademy.jpg" width="100%"/>  <p class="page_title">  Aspire Academy  </p></li>
+            <li> <img src="images/clients/dpc.jpg" width="100%"/>  <p class="page_title"> DPC Polytechnic College </p></li>
+            <li> <img src="images/clients/buspickr.jpg" width="100%"/>  <p class="page_title">  Buspickr </p></li>
+            <li> <img src="images/clients/durga.jpg" width="100%"/>  <p class="page_title">  Durga Construction </p></li>
+            <li> <img src="images/clients/kamadhenu.jpg" width="100%"/>  <p class="page_title">  Kamadhenu College of Arts and Science </p></li>
+            <li> <img src="images/clients/littlegenius.jpg" width="100%"/>  <p class="page_title">  Little Genius </p></li>
+            <li> <img src="images/clients/peacetrust.jpg" width="100%"/>  <p class="page_title"> Peace Moment Ismail  </p></li>
+            <li> <img src="images/clients/pl.jpg" width="100%"/>  <p class="page_title">  Online Lorry </p></li>
+            <li> <img src="images/clients/pmp.png" width="100%"/>  <p class="page_title"> PMP College </p></li>
+            <li> <img src="images/clients/sangamam.jpg" width="100%"/>  <p class="page_title">  Sangamam Wedding </p></li>
+            <li> <img src="images/clients/uniqueacademy.jpg" width="100%"/>  <p class="page_title">  Unique Academy  </p></li>
+            <li> <img src="images/clients/valueindia.jpg" width="100%"/>  <p class="page_title"> Value India </p></li>
+          
+</ul>
+       
+    </ons-page>
+  </ons-template>
+
+<ons-template id="staticprojects.html">
+  <ons-page>
+    <ons-toolbar>
+       <div class="left">
+        <ons-toolbar-button ng-click="app.toggle()">
+          <ons-icon icon="md-menu"></ons-icon>
+        </ons-toolbar-button>
+      </div>
+      <div class="center">
+        Static Web Projects
+      
+      </div>
+    </ons-toolbar>
+
+<ul class="list-unstyled">
+  <li ng-repeat="x in staticData track by $index" >
+     
+       <img ng-src= "{{ x.project_thumb }}" width="100%"/> 
+      <p class="page_title">  {{ x.project_title }}</p>
+  </li>
+</ul>
+ 
+  </ons-page>
+</ons-template>
+    
+<ons-template id="dynamicprojects.html">
+  <ons-page>
+    <ons-toolbar>
+       <div class="left">
+        <ons-toolbar-button ng-click="app.toggle()">
+          <ons-icon icon="md-menu"></ons-icon>
+        </ons-toolbar-button>
+      </div>
+      <div class="center">
+        Dynamic Web Projects
+      
+      </div>
+    </ons-toolbar>
+
+<ul class="list-unstyled">
+  <li ng-repeat="y in dynamicData track by $index" >
+     
+       <img ng-src= "images/web-pages/thumb/{{ y.project_thumb }}" width="100%"/> 
+      <p class="page_title">  {{ y.project_title }}</p>
+  </li>
+</ul>
+ 
+  </ons-page>
+</ons-template>  
+    
+<ons-template id="softwareprojects.html">
+  <ons-page>
+    <ons-toolbar>
+       <div class="left">
+        <ons-toolbar-button ng-click="app.toggle()">
+          <ons-icon icon="md-menu"></ons-icon>
+        </ons-toolbar-button>
+      </div>
+      <div class="center">
+        Software Projects
+      
+      </div>
+    </ons-toolbar>
+
+<ul class="list-unstyled">
+  <li ng-repeat="z in softwareData track by $index" >
+     
+       <img ng-src= "images/web-pages/thumb/{{ z.project_thumb }}" width="100%"/> 
+      <p class="page_title">  {{ z.project_title }}</p>
+  </li>
+</ul>
+ 
+  </ons-page>
+</ons-template>
+    
+<ons-template id="responsiveprojects.html">
+  <ons-page>
+    <ons-toolbar>
+       <div class="left">
+        <ons-toolbar-button ng-click="app.toggle()">
+          <ons-icon icon="md-menu"></ons-icon>
+        </ons-toolbar-button>
+      </div>
+      <div class="center">
+        Responsive Projects
+      
+      </div>
+    </ons-toolbar>
+
+<ul class="list-unstyled">
+  <li ng-repeat="j in responsiveData track by $index" >
+     
+       <img ng-src= "images/responsive/{{ j.project_thumb }}" width="100%"/> 
+      <p class="page_title">  {{ j.project_title }}</p>
+  </li>
+</ul>
+ 
+  </ons-page>
+</ons-template>   
+    
+<ons-template id="appprojects.html">
+  <ons-page>
+    <ons-toolbar>
+       <div class="left">
+        <ons-toolbar-button ng-click="app.toggle()">
+          <ons-icon icon="md-menu"></ons-icon>
+        </ons-toolbar-button>
+      </div>
+      <div class="center">
+        Application Projects
+      
+      </div>
+    </ons-toolbar>
+
+<ul class="list-unstyled">
+  <li ng-repeat="k in appsData track by $index" >
+     
+       <img ng-src= "images/app/{{ k.project_thumb }}" width="100%"/> 
+      <p class="page_title">  {{ k.project_title }}</p>
+  </li>
+</ul>
+ 
+  </ons-page>
+</ons-template>   
+     
+<ons-template id="contactus.html">
+  <ons-page>
+    <ons-toolbar>
+       <div class="left">
+        <ons-toolbar-button ng-click="app.toggle()">
+          <ons-icon icon="md-menu"></ons-icon>
+        </ons-toolbar-button>
+      </div>
+      <div class="center">
+        Application Projects
+      
+      </div>
+    </ons-toolbar>
+
+<h4>Ugra Technology</h4>
+      <address>
+          <h5>Address</h5>
+          246/1, Senthil plaza, Opp,Sona College, Junction Main Road Salem - 636 005. <br />
+          <h5>Phone</h5>
+           Mobile   : +91 9944731958 <br />
+          <h5>Email address</h5>
+           Gmail  &nbsp; &nbsp;&nbsp;    : ugratechnology@gmail.com<br />
+            Webmail : info@ugratechnology.com<br />
+            Landline : +91-427-4056258<br />
+      </address>
+      <h4>Bank Details</h4>
+       <img src="images/pnb.jpg" class="responsive"/>
+  </ons-page>
+</ons-template>   
+ 
+</body>
+</html>

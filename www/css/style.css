@@ -1,0 +1,20 @@
+/**/
+
+p{padding: 10px}
+h3{padding: 0px 10px;}
+img.responsive{width: 100%; height: auto;}
+.list-unstyled li, ul.list-clients li{list-style: none; margin-left: -20px; width: 98%  }
+.list-unstyled li img{border:#ed7878 thin solid; margin-bottom: 15px;}
+ li{list-style: none;}
+.list-clients li img{border:#ed7878 thin solid; margin-bottom: 15px;}
+li p.page_title{text-align: center; background: #ef5656; color: #fff; font-weight: 600;padding: 3px 10px; width: 94.4%;  margin: -19px 0px 20px 0px}
+ @media screen  (max-width: 375px)
+    {
+        .front_page_content{position: relative; top: 180px;}
+        .front_page_content p{text-align: justify;}
+     }  
+
+.front_page_content{position: relative; top: 180px;}
+        .front_page_content p{text-align: justify;}
+
+.alert-danger{background: #f26868; color: #fff; padding: 5px 20px; margin-bottom: 20px;}
